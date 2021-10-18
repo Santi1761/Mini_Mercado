@@ -12,6 +12,7 @@ public class Person {
 		
 	
 	public Person(Document type_Document, String variable) throws Second_Exception {
+		
 		if(type_Document == Document.Tarjeta_Identidad) {
 			throw new Second_Exception();
 		} else {
@@ -21,9 +22,22 @@ public class Person {
 	}
 	
 		
-	
+	public void Login() throws First_Exception {
+		
+		if(day%2 == 0 && getPerson()%2 != 0) {
+		} else if(day%2 != 0 && getPerson()%2 == 0) {
+		} else {
+			throw new First_Exception();
+		}
+	}
 	
 
+	public int getPerson() {
+		
+		String[] variable2 = variable.split("");
+		
+		return Integer.parseInt(variable2[(variable2.length-2)]);
+	}
 	
 	public Document getType_Document() {
 		
@@ -35,21 +49,10 @@ public class Person {
 		return variable;
 	}
 	
-	public int getPenultimate() {
-		String[] variable2 = variable.split("");
-		
-		return Integer.parseInt(variable2[(variable2.length-2)]);
-	}
 	
 	
-	public void Login() throws First_Exception {
-		
-		if(day%2 == 0 && getPenultimate()%2 != 0) {
-		} else if(day%2 != 0 && getPenultimate()%2 == 0) {
-		} else {
-			throw new First_Exception();
-		}
-	}
+	
+	
 		
 
 }

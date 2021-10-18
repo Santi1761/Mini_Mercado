@@ -12,27 +12,27 @@ import exceptions.Second_Exception;
 
 
 public class Main {
-	
-	private BufferedReader buffer;
+		
 	private List<Person> pEntered; 
-	
+	private BufferedReader buffer;
 	
 	public Main() {
 		
-		buffer = new BufferedReader(new InputStreamReader(System.in));
 		pEntered = new ArrayList<Person>();
+		buffer = new BufferedReader(new InputStreamReader(System.in));
+		
 	}
 
-	public static void main(String[]juank) {
+	public static void main(String[] args) {
 		
 		Main principal = new Main();
+		int personas = 0;
+		int option = -1;
 		
 		System.out.println("///////////////////////////////////////");
 		System.out.println("Bienvenid@ a Mi Barrio te Quiere :D\n");
 		
 		
-		int personas = 0;
-		int option = -1;
 		do {
 			String line = "";
 			
@@ -40,7 +40,7 @@ public class Main {
 				System.out.print(principal.Menu());
 				
 				try {
-					line = principal.readALine();
+					line = principal.rLine();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -50,7 +50,7 @@ public class Main {
 			
 			switch(option) {
 			case 1:
-				principal.signInUser();
+				principal.pLogin();
 				personas++;
 				break;
 			case 2:
@@ -75,7 +75,7 @@ public class Main {
 				+ "3. Salir\n";			
 	}
 	
-	public void signInUser(){
+	public void pLogin(){
 		
 		System.out.println("\nEscoge el tipo de documento porfa :  :)\n"
 				+ "1. Tarjeta de Identidad\n"
@@ -87,7 +87,7 @@ public class Main {
 		
 		do {
 			try {
-				line = readALine();
+				line = rLine();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -117,7 +117,7 @@ public class Main {
 			System.out.println("\nCual es el Numero del documento?: ");
 			
 			try {
-				identification = readALine();
+				identification = rLine();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -141,7 +141,7 @@ public class Main {
 		}	
 	}
 	
-	public String readALine() throws IOException {
+	public String rLine() throws IOException {
 		
 		String line = buffer.readLine();
 		return line;
